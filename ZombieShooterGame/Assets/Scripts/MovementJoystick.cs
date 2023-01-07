@@ -28,7 +28,7 @@ public class MovementJoystick : MonoBehaviour
             leftInnerCircle.transform.position = pointA ;
             leftOuterCircle.transform.position = pointA ;
             leftInnerCircle.GetComponent<SpriteRenderer>().enabled = true;
-            leftOuterCircle.GetComponent<SpriteRenderer>().enabled = true;
+            leftOuterCircle.GetComponent<SpriteRenderer>().enabled = true; 
         }
         if(Input.GetMouseButton(0)){
             touchStart = true;
