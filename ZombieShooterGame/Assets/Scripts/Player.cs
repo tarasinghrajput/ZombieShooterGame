@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     Vector3 aimVelocity;
     public Rigidbody2D rb;
     public float moveSpeed;
+    public GameObject bullet;
+    public Transform firePoint;
 
     public float speed;
     public float fireSpeed;
@@ -50,5 +52,17 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
+        // Rigidbody2D bulletRb = newBullet.GetComponent<Rigidbody2D> ();
+        // bulletRb.AddForce(transform.forward * fireSpeed);
     }
 }
