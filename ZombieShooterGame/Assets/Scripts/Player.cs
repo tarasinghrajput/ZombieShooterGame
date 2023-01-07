@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     Vector3 aimVelocity;
     public Rigidbody2D rb;
     public float moveSpeed;
+
+    public float speed;
     public float fireSpeed;
 
 
@@ -22,6 +24,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // WASD keys player movement
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        transform.position = transform.position + new Vector3(horizontal, vertical, 0) * Time.deltaTime * speed;
+
+
+
+        // Moving mechanics
         moveVelocity = new Vector2(moveJoystick.Horizontal, moveJoystick.Vertical);
         Vector2 moveInput = new Vector2(moveVelocity.x, moveVelocity.y);
         Vector2 moveDir = moveInput.normalized * moveSpeed;
@@ -33,6 +44,7 @@ public class Player : MonoBehaviour
         // Vector3 lookAtPoint = transform.position + aimInput;
         // transform.LookAt(lookAtPoint);
 
+        // Aiming Mechanics
         Vector3 moveVector = (Vector3.up * aimJoystick.Horizontal + Vector3.left * aimJoystick.Vertical);
         if (aimJoystick.Horizontal != 0 || aimJoystick.Vertical != 0)
         {

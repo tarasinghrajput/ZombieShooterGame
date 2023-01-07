@@ -627,6 +627,7 @@ MonoBehaviour:
   aimJoystick: {fileID: 989788522}
   rb: {fileID: 1034379081}
   moveSpeed: 25
+  speed: 10
   fireSpeed: 0
 --- !u!1 &1488847132
 GameObject:
