@@ -10,8 +10,8 @@ public class MovementJoystick : MonoBehaviour
     private Vector2 pointA;
     private Vector2 pointB;
 
-    public Transform circle;
-    public Transform outerCircle;
+    public Transform leftInnerCircle;
+    public Transform leftOuterCircle;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,10 @@ public class MovementJoystick : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             pointA = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
 
-            circle.transform.position = pointA * -1;
-            outerCircle.transform.position = pointA * -1;
-            circle.GetComponent<SpriteRenderer>().enabled = true;
-            outerCircle.GetComponent<SpriteRenderer>().enabled = true;
+            leftInnerCircle.transform.position = pointA ;
+            leftOuterCircle.transform.position = pointA ;
+            leftInnerCircle.GetComponent<SpriteRenderer>().enabled = true;
+            leftOuterCircle.GetComponent<SpriteRenderer>().enabled = true;
         }
         if(Input.GetMouseButton(0)){
             touchStart = true;
@@ -42,12 +42,12 @@ public class MovementJoystick : MonoBehaviour
         if(touchStart){
             Vector2 offset = pointB - pointA;
             Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
-            moveCharacter(direction * -1);
+            moveCharacter(direction);
 
-            circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y) * -1;
+            leftInnerCircle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
         }else{
-            circle.GetComponent<SpriteRenderer>().enabled = false;
-            outerCircle.GetComponent<SpriteRenderer>().enabled = false;
+            leftInnerCircle.GetComponent<SpriteRenderer>().enabled = false;
+            leftOuterCircle.GetComponent<SpriteRenderer>().enabled = false;
         }
 
 	}
