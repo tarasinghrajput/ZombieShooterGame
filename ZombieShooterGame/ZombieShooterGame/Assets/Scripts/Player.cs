@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
 
         // aimVelocity = new Vector3(aimJoystick.Horizontal, aimJoystick.Vertical);
-        // Vector3 aimInput = new Vector3(aimVelocity.x, aimVelocity.y)* Mathf.Rad2Deg;;
+        // Vector3 aimInput = new Vector3(aimVelocity.x, aimVelocity.y)* Mathf.Rad2Deg;
         // Vector3 lookAtPoint = transform.position + aimInput;
         // transform.LookAt(lookAtPoint);
 
@@ -61,7 +61,8 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        GameObject newBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
+        var newBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
+        newBullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * fireSpeed;
         // Rigidbody2D bulletRb = newBullet.GetComponent<Rigidbody2D> ();
         // bulletRb.AddForce(transform.forward * fireSpeed);
     }
