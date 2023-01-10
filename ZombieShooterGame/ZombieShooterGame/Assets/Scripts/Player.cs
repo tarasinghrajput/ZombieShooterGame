@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // public Shooting shootingScript;
     public FixedJoystick moveJoystick;
     public FixedJoystick aimJoystick;
     Vector3 moveVelocity;
     Vector3 aimVelocity;
     public Rigidbody2D rb;
     public float moveSpeed;
-    public GameObject bullet;
+    // public GameObject bullet;
     public Transform firePoint;
 
     public float speed;
@@ -55,15 +56,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            Shooting.Shoot();
         }
-    }
-
-    void Shoot()
-    {
-        var newBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
-        newBullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * fireSpeed;
-        // Rigidbody2D bulletRb = newBullet.GetComponent<Rigidbody2D> ();
-        // bulletRb.AddForce(transform.forward * fireSpeed);
     }
 }

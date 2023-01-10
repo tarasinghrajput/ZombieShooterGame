@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    public float fireSpeed;
+    public GameObject bullet;
     // public Transform player;
     // // public float speed = 5.0f;
     // private bool touchStart = false;
@@ -35,5 +37,12 @@ public class Shooting : MonoBehaviour
         // }else{
         //     touchStart = false;
         // }
+    }
+
+    void Shoot()
+    {
+        var newBullet = Instantiate(bullet, firePoint.position, transform.rotation);
+        /* newBullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * fireSpeed; */
+        bullet.transform.Translate(Vector2.right * 20f * Time.deltaTime);
     }
 }
