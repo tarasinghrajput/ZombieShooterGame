@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public float fireSpeed;
     public GameObject bullet;
+    public Transform firePoint;
     // public Transform player;
     // // public float speed = 5.0f;
     // private bool touchStart = false;
@@ -39,7 +40,7 @@ public class Shooting : MonoBehaviour
         // }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         var newBullet = Instantiate(bullet, firePoint.position, transform.rotation);
         /* newBullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * fireSpeed; */

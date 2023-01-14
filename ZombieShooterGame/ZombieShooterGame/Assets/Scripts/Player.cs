@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // public Shooting shootingScript;
+    public Shooting shootingScript;
     public FixedJoystick moveJoystick;
     public FixedJoystick aimJoystick;
     Vector3 moveVelocity;
@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float moveSpeed;
     // public GameObject bullet;
-    public Transform firePoint;
 
     public float speed;
     public float fireSpeed;
@@ -22,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        shootingScript = gameObject.GetComponent<Shooting>();
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Shooting.Shoot();
+            shootingScript.Shoot();
         }
     }
 }
