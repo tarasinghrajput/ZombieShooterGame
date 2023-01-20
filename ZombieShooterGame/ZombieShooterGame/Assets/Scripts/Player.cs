@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        shootingScript = gameObject.GetComponent<Shooting>();
+        shootingScript = GetComponent<Shooting>();
     }
 
     // Update is called once per frame
