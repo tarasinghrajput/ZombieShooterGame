@@ -656,7 +656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee6580edd098714fafb5b75bdcd0888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingScript: {fileID: 0}
   moveJoystick: {fileID: 1824125008}
   aimJoystick: {fileID: 989788522}
   rb: {fileID: 1034379081}
@@ -1101,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250127324430488009, guid: caddf6819ccfd8b4f9279d196bf777dd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caddf6819ccfd8b4f9279d196bf777dd, type: 3}
@@ -1202,7 +1201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250127324430488009, guid: caddf6819ccfd8b4f9279d196bf777dd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caddf6819ccfd8b4f9279d196bf777dd, type: 3}
