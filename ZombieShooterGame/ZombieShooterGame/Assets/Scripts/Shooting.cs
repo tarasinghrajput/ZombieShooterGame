@@ -18,7 +18,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Shoot());
     }
 
     // Update is called once per frame
@@ -38,12 +38,21 @@ public class Shooting : MonoBehaviour
         // }else{
         //     touchStart = false;
         // }
+
+        
     }
 
-    public void Shoot()
+    IEnumerator Shoot()
     {
-        var newBullet = Instantiate(bullet, firePoint.position, transform.rotation);
+        while(true)
+        {
+        yield return new WaitForSeconds(0.4f);
+            if (Input.GetMouseButton(0))
+            {
+                var newBullet = Instantiate(bullet, firePoint.position, transform.rotation);
+                bullet.transform.Translate(Vector2.right * 20f * Time.deltaTime);
+            }
         /* newBullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * fireSpeed; */
-        bullet.transform.Translate(Vector2.right * 20f * Time.deltaTime);
+        }
     }
 }

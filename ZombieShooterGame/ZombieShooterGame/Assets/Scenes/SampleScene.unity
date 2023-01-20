@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 1034379082}
   - component: {fileID: 1034379081}
   - component: {fileID: 1034379083}
+  - component: {fileID: 1034379084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -655,14 +656,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee6580edd098714fafb5b75bdcd0888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingScript: {fileID: 0}
   moveJoystick: {fileID: 1824125008}
   aimJoystick: {fileID: 989788522}
   rb: {fileID: 1034379081}
   moveSpeed: 25
-  bullet: {fileID: 7345371600730479511, guid: c1fa3168881f1c14c9550f4a78e15b3e, type: 3}
-  firePoint: {fileID: 114538539}
   speed: 10
   fireSpeed: 0
+--- !u!114 &1034379084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034379078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e22e695eaf1e8442bed5ee87c546469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireSpeed: 0
+  bullet: {fileID: 7345371600730479511, guid: c1fa3168881f1c14c9550f4a78e15b3e, type: 3}
+  firePoint: {fileID: 114538539}
 --- !u!1 &1488847132
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Shooting shootingScript;
     public FixedJoystick moveJoystick;
     public FixedJoystick aimJoystick;
     Vector3 moveVelocity;
@@ -21,7 +20,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        shootingScript = GetComponent<Shooting>();
     }
 
     // Update is called once per frame
@@ -52,11 +50,6 @@ public class Player : MonoBehaviour
         if (aimJoystick.Horizontal != 0 || aimJoystick.Vertical != 0)
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            shootingScript.Shoot();
         }
     }
 }
