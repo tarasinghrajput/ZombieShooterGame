@@ -7,6 +7,9 @@ public class Zombie : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float zombieSpeed = 1.5f;
 
+    private void Awake() {
+        player = GameObject.FindWithTag("Player");
+    }
 
     void Update() 
     {
