@@ -13,13 +13,15 @@ public class ZombiesSpawner : MonoBehaviour
     private int spawnPosition = 1;
     private float randomX;
     private float randomY;
+    private Vector3 tempPosX;
+    private Vector3 tempPosY;
 
 
     void Start() 
     {
         // spawnPosition = Random.Range(1, 4);
-        randomX = Random.Range(12, -12);
-        randomY = Random.Range(4, -4);
+        // randomX = Random.Range(12, -12);
+        // randomY = Random.Range(4, -4);
         StartCoroutine(PositionZombie());
     }
 
@@ -30,10 +32,23 @@ public class ZombiesSpawner : MonoBehaviour
         {
             
         yield return new WaitForSeconds(2f);
-        if(spawnPosition == 1){
-        var spawnedZombie =  Instantiate(zombiePrefab, transform.position, Quaternion.identity);
-        spawnedZombie.transform.position = new Vector3(-12f, randomY, 0f);
+        SpawnZombie();
+        switch (spawnPosition)
+        {
+            case 1:
+            Instantiate(zombiePrefab, tempPosX, Quaternion.identity);
+            break;
 
+            default:
+            break;
+        }
+        // spawnedZombie.transform.position = new Vector3(-12f, randomY, 0f);
+        void SpawnZombie()
+        {
+            randomX = Random.Range(12, -12);
+            randomY = Random.Range(4, -4);
+            tempPosX = new Vector3(randomX, topSpawner.position.y, 0);
+            tempPosX = new Vector3(topSpawner.position.x, randomY, 0);
         }
         }
     }
