@@ -25,7 +25,9 @@ public class bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        // Destroy(collision.gameObject);
+        // destroys the gameobject that the bullet clone collides with
+        Destroy(collision.gameObject);
+        // destroys the bullet clone
         Destroy(gameObject);
     }
 
