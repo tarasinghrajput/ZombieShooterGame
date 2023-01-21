@@ -19,7 +19,7 @@ public class ZombiesSpawner : MonoBehaviour
 
     void Start() 
     {
-        // spawnPosition = Random.Range(1, 4);
+        
         // randomX = Random.Range(12, -12);
         // randomY = Random.Range(4, -4);
         StartCoroutine(PositionZombie());
@@ -30,26 +30,52 @@ public class ZombiesSpawner : MonoBehaviour
     {
         while (true)
         {
+            spawnPosition = Random.Range(1, 4);
             
-        yield return new WaitForSeconds(2f);
-        SpawnZombie();
-        switch (spawnPosition)
-        {
-            case 1:
-            Instantiate(zombiePrefab, tempPosX, Quaternion.identity);
-            break;
+            yield return new WaitForSeconds(2f);
+            switch (spawnPosition)
+            {
+                case 1:
+                SpawnZombieAtTop();
+                Instantiate(zombiePrefab, tempPosY, Quaternion.identity);
+                break;
+            
+                case 2:
+                SpawnZombieAtBottom();
+                Instantiate(zombiePrefab, tempPosY, Quaternion.identity);
+                break;
+            
+                case 3:
+                SpawnZombieAtLeft();
+                Instantiate(zombiePrefab, tempPosX, Quaternion.identity);
+                break;
 
-            default:
-            break;
-        }
-        // spawnedZombie.transform.position = new Vector3(-12f, randomY, 0f);
-        void SpawnZombie()
-        {
-            randomX = Random.Range(12, -12);
-            randomY = Random.Range(4, -4);
-            tempPosX = new Vector3(randomX, topSpawner.position.y, 0);
-            tempPosX = new Vector3(topSpawner.position.x, randomY, 0);
-        }
+                default:
+                SpawnZombieAtRight();
+                Instantiate(zombiePrefab, tempPosX, Quaternion.identity);
+                break;
+            }
+            // spawnedZombie.transform.position = new Vector3(-12f, randomY, 0f);
+            void SpawnZombieAtTop()
+            {
+                randomX = Random.Range(12, -12);
+                tempPosY = new Vector3(randomX, topSpawner.position.y, 0);
+            }
+            void SpawnZombieAtBottom()
+            {
+                randomX = Random.Range(12, -12);
+                tempPosY = new Vector3(randomX, bottomSpawner.position.y, 0);
+            }
+            void SpawnZombieAtLeft()
+            {
+                randomY = Random.Range(4, -4);
+                tempPosX = new Vector3(leftSpawner.position.x, randomY, 0);
+            }
+            void SpawnZombieAtRight()
+            {
+                randomY = Random.Range(4, -4);
+                tempPosX = new Vector3(rightSpawner.position.x, randomY, 0);
+            }
         }
     }
 }
