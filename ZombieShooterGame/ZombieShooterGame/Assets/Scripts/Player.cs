@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     Vector3 aimVelocity;
     public Rigidbody2D rb;
     public float moveSpeed;
+    public Collision2D zombieRb;
     // public GameObject bullet;
 
     public float speed;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        zombieRb = GameObject.FindWithTag("Enemies").GetComponent<Collision2D>;
     }
 
     // Update is called once per frame
@@ -51,5 +53,26 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
         }
+
+
+        // If zombie hit the player
+        
+    }
+
+    IEnumerator Invincibility()
+    {
+        for (int i = 0; i <= 15; i++)
+        {
+            gameObject.SetActive = false;
+            // yield return new WaitForSeconds(0.05);
+            gameObject.SetActive = true;
+            // yield return new WaitForSeconds(0.05);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if(collision == zombieRb)
+        StartCoroutine(Invincibility());
     }
 }
