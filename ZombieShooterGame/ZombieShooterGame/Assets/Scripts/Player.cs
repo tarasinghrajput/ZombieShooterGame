@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         // zombieRb = GameObject.FindWithTag("Enemies").GetComponent<Collision2D>;
         rend = GetComponent<Renderer>();
         colour = rend.material.color;
-        StartCoroutine(Invincibility());
+        // StartCoroutine(Invincibility());
     }
 
     // Update is called once per frame
@@ -65,18 +65,27 @@ public class Player : MonoBehaviour
 
     IEnumerator Invincibility()
     {
-        for (int i = 0; i <= 50; i++)
+       /* for (int i = 0; i <= 5; i++)
         {
             gameObject.SetActive(false);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1);
             gameObject.SetActive(true);
+        } */
+
+        for(var n = 0; n < 5; n++)
+        {
+            rend.enabled = true;
+            yield return new WaitForSeconds(.1f);
+            rend.enabled = false;
+            yield return new WaitForSeconds(.1f);
         }
+            rend.enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if(collision.gameObject.CompareTag("Enemies"))
+        if(!(collision.gameObject.CompareTag("Enemies")))
         StartCoroutine(Invincibility());
-        Debug.Log("Collided");
+        Debug.Log(collision.gameObject.CompareTag("Enemies"));
     }
 }
