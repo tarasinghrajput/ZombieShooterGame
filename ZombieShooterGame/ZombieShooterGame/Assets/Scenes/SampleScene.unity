@@ -974,7 +974,6 @@ GameObject:
   - component: {fileID: 1034379083}
   - component: {fileID: 1034379084}
   - component: {fileID: 1034379085}
-  - component: {fileID: 1034379086}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1113,8 +1112,6 @@ MonoBehaviour:
   aimJoystick: {fileID: 989788522}
   rb: {fileID: 1034379081}
   moveSpeed: 10
-  rend: {fileID: 0}
-  colour: {r: 0, g: 0, b: 0, a: 0}
   speed: 10
   fireSpeed: 0
 --- !u!114 &1034379084
@@ -1145,7 +1142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  numOfHearts: 3
+  numOfHearts: 5
   hearts:
   - {fileID: 2146020285}
   - {fileID: 1689682420}
@@ -1153,26 +1150,7 @@ MonoBehaviour:
   - {fileID: 1856268441}
   - {fileID: 924162607}
   fullHeart: {fileID: 21300000, guid: 7879a6eeb50562a40ac12deb9802d32a, type: 3}
---- !u!95 &1034379086
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034379078}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9ac43e896846ef64aaf2f25d9cd37646, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  rend: {fileID: 0}
 --- !u!1 &1488847132
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,21 +11,16 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float moveSpeed;
     // public Collision2D zombieRb;
-    public Renderer rend;
-    public Color colour;
 
     public float speed;
     public float fireSpeed;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         // zombieRb = GameObject.FindWithTag("Enemies").GetComponent<Collision2D>;
-        rend = GetComponent<Renderer>();
-        colour = rend.material.color;
-        // StartCoroutine(Invincibility());
     }
 
     // Update is called once per frame
@@ -58,34 +53,8 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
         }
 
-
-        // If zombie hit the player
         
     }
 
-    IEnumerator Invincibility()
-    {
-       /* for (int i = 0; i <= 5; i++)
-        {
-            gameObject.SetActive(false);
-            yield return new WaitForSeconds(1);
-            gameObject.SetActive(true);
-        } */
-
-        for(var n = 0; n < 5; n++)
-        {
-            rend.enabled = true;
-            yield return new WaitForSeconds(.1f);
-            rend.enabled = false;
-            yield return new WaitForSeconds(.1f);
-        }
-            rend.enabled = true;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) 
-    {
-        if(!(collision.gameObject.CompareTag("Enemies")))
-        StartCoroutine(Invincibility());
-        Debug.Log(collision.gameObject.CompareTag("Enemies"));
-    }
+    
 }

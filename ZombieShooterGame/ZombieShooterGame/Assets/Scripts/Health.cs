@@ -11,6 +11,13 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
 
+    public Renderer rend;
+
+    private void Awake() 
+    {
+        rend = GetComponent<Renderer>();
+    }
+
     private void Update() 
     {
         if(health > numOfHearts)
@@ -28,6 +35,30 @@ public class Health : MonoBehaviour
 
             }
         }
+    }
+
+
+    IEnumerator Invincibility()
+    {
+        for(var n = 0; n < 10; n++)
+        {
+            rend.enabled = true;
+            yield return new WaitForSeconds(.1f);
+            rend.enabled = false;
+            yield return new WaitForSeconds(.1f);
+        }
+            rend.enabled = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if(!(collision.gameObject.CompareTag("Enemies")))
+        {
+            StartCoroutine(Invincibility());
+            health -= 1;
+            numOfHearts -= 1;
+        }
+        Debug.Log(collision.gameObject.CompareTag("Enemies"));
     }
 
 }
