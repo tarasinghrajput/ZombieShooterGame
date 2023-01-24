@@ -10,8 +10,9 @@ public class Player : MonoBehaviour
     Vector3 aimVelocity;
     public Rigidbody2D rb;
     public float moveSpeed;
-    public Collision2D zombieRb;
-    // public GameObject bullet;
+    // public Collision2D zombieRb;
+    public Renderer rend;
+    public Color colour;
 
     public float speed;
     public float fireSpeed;
@@ -21,7 +22,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        zombieRb = GameObject.FindWithTag("Enemies").GetComponent<Collision2D>;
+        // zombieRb = GameObject.FindWithTag("Enemies").GetComponent<Collision2D>;
+        rend = GetComponent<Renderer>();
+        colour = rend.material.color;
+        StartCoroutine(Invincibility());
     }
 
     // Update is called once per frame
@@ -61,18 +65,18 @@ public class Player : MonoBehaviour
 
     IEnumerator Invincibility()
     {
-        for (int i = 0; i <= 15; i++)
+        for (int i = 0; i <= 50; i++)
         {
-            gameObject.SetActive = false;
-            // yield return new WaitForSeconds(0.05);
-            gameObject.SetActive = true;
-            // yield return new WaitForSeconds(0.05);
+            gameObject.SetActive(false);
+            yield return new WaitForSeconds(1f);
+            gameObject.SetActive(true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if(collision == zombieRb)
+        if(collision.gameObject.CompareTag("Enemies"))
         StartCoroutine(Invincibility());
+        Debug.Log("Collided");
     }
 }
