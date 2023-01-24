@@ -54,11 +54,10 @@ public class Health : MonoBehaviour
     {
         if(!(collision.gameObject.CompareTag("Enemies")))
         {
-            StartCoroutine(Invincibility());
             health -= 1;
             numOfHearts -= 1;
+            StartCoroutine(Invincibility());
         }
-        Debug.Log(collision.gameObject.CompareTag("Enemies"));
     }
 
 }
