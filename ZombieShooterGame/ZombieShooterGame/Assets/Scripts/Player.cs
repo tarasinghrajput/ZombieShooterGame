@@ -52,9 +52,6 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
         }
-
-        if(GameManager.Instance.healthScript.health < 1)
-        Destroy(gameObject);
     }
 
     
