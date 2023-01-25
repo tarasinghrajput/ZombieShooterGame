@@ -26,7 +26,7 @@ public class bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) 
     {
         // destroys the Enemies that the bullet clone collides with
-        if(!(LayerMask.NameToLayer("Enemies") == 7))
+        if(LayerMask.NameToLayer("Enemies") == 7)
         Destroy(collision.gameObject);
         // destroys the bullet clone
         Destroy(gameObject);
