@@ -1111,7 +1111,7 @@ MonoBehaviour:
   moveJoystick: {fileID: 1824125008}
   aimJoystick: {fileID: 989788522}
   rb: {fileID: 1034379081}
-  moveSpeed: 10
+  moveSpeed: 50
   speed: 10
   fireSpeed: 0
 --- !u!114 &1034379084
